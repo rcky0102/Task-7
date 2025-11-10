@@ -1,0 +1,136 @@
+import 'package:flutter/material.dart';
+import 'package:task_6/auth/userdata.dart';
+import 'package:task_6/auth/userpost.dart';
+import 'package:task_6/views/profile.view.dart';
+
+class Postlist extends StatefulWidget {
+  const Postlist({super.key, required this.userdata});
+
+  final Userdata userdata;
+
+  @override
+  State<Postlist> createState() => _PostlistState();
+}
+
+class _PostlistState extends State<Postlist> {
+  var nametxtStyle = const TextStyle(fontSize: 16, fontWeight: FontWeight.bold);
+
+  void gotoPage(BuildContext context, dynamic page) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => page));
+  }
+
+  Widget buttons(Userpost userPost) => Row(
+    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    children: [
+      TextButton.icon(
+        style: TextButton.styleFrom(
+          foregroundColor: (userPost.isliked) ? Colors.blue : Colors.grey,
+        ),
+        onPressed: () {
+          setState(() {
+            userPost.isliked = !userPost.isliked;
+          });
+        },
+        icon: const Icon(Icons.thumb_up),
+        label: const Text('Like'),
+      ),
+      TextButton.icon(
+        style: TextButton.styleFrom(foregroundColor: Colors.grey),
+        onPressed: () {},
+        icon: const Icon(Icons.message),
+        label: const Text('Comment'),
+      ),
+      TextButton.icon(
+        style: TextButton.styleFrom(foregroundColor: Colors.grey),
+        onPressed: () {},
+        icon: const Icon(Icons.share),
+        label: const Text('Share'),
+      ),
+    ],
+  );
+
+  Widget postCount(Userpost userPost) => Row(
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      Text('${userPost.numcomments} Comments'),
+      const SizedBox(width: 20),
+      Text('${userPost.numshare} Shares'),
+    ],
+  );
+
+  Widget postImage(Userpost userPost) => Padding(
+    padding: const EdgeInsets.symmetric(vertical: 10),
+    child: ClipRRect(
+      // borderRadius: BorderRadius.circular(10),
+      child: Container(
+        height: 350,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(userPost.postimg),
+            fit: BoxFit.cover,
+          ),
+        ),
+      ),
+    ),
+  );
+
+  Widget postHeader(Userpost userPost) => Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        padding: const EdgeInsets.symmetric(horizontal: 10),
+        child: CircleAvatar(
+          radius: 20,
+          backgroundImage: AssetImage(userPost.userimg),
+        ),
+      ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(userPost.username, style: nametxtStyle),
+          Row(
+            children: [
+              Text('${userPost.time} · '),
+              const Icon(Icons.people, size: 18),
+            ],
+          ),
+        ],
+      ),
+    ],
+  );
+
+  Widget showPost(Userpost userPost) => Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      postHeader(userPost),
+      Container(
+        margin: const EdgeInsets.all(8),
+        child: Text(userPost.postcontent, style: nametxtStyle),
+      ),
+      postImage(userPost),
+      Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8),
+        child: postCount(userPost),
+      ),
+      const Divider(),
+      buttons(userPost),
+      Container(height: 10, color: Colors.grey[200]),
+      const SizedBox(height: 15),
+    ],
+  );
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: widget.userdata.userList.map((userPost) {
+        return InkWell(
+          onTap: () {
+            gotoPage(context, ProfileView(userPost: userPost));
+          },
+          child: showPost(userPost),
+        );
+      }).toList(),
+    );
+  }
+}
