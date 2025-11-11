@@ -68,13 +68,9 @@ class _LoginFormState extends State<LoginForm> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
-                    'assets/tiktok-logo_705838-12827.avif',
-                    height: 48,
-                    width: 48,
-                  ),
+                  Image.asset('assets/face-scan.png', height: 48, width: 48),
                   const SizedBox(width: 12),
-                  Text("TIKTOK", style: txtstyle),
+                  Text("BookFace", style: txtstyle),
                 ],
               ),
               const SizedBox(height: 15),

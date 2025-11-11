@@ -6,7 +6,7 @@ import 'package:task_6/auth/userpost.dart';
 class Userdata {
   List<Userpost> userList = [
     Userpost(
-      userimg: 'assets/male 1.png',
+      userimg: 'assets/male 6.png',
       username: 'John Doe',
       time: '2 hrs ago',
       postcontent:
@@ -18,7 +18,7 @@ class Userdata {
     ),
 
     Userpost(
-      userimg: 'assets/female 1.png',
+      userimg: 'assets/female 4.png',
       username: 'Maria Santos',
       time: '30 mins ago',
       postcontent:
@@ -30,7 +30,7 @@ class Userdata {
     ),
 
     Userpost(
-      userimg: 'assets/female 1.png',
+      userimg: 'assets/female 5.png',
       username: 'Alex Rivera',
       time: '5 hrs ago',
       postcontent:
@@ -57,10 +57,10 @@ class Userdata {
   List<Friend> friendList = [
     Friend(img: 'assets/female 1.png', name: 'Alice'),
     Friend(img: 'assets/male 1.png', name: 'Bob'),
-    Friend(img: 'assets/male 2.png', name: 'Charlie'),
-    Friend(img: 'assets/female 2.png', name: 'Diana'),
-    Friend(img: 'assets/male 1.png', name: 'Ethan'),
-    Friend(img: 'assets/male 2.png', name: 'Michael'),
+    Friend(img: 'assets/female 3.png', name: 'Diana'),
+    Friend(img: 'assets/male 3.png', name: 'Charlie'),
+    Friend(img: 'assets/male 4.png', name: 'Ethan'),
+    Friend(img: 'assets/male 5.png', name: 'Michael'),
   ];
 
   List<Usercomment> commentList = [
@@ -68,19 +68,19 @@ class Userdata {
       commenterImg: 'assets/female 1.png',
       commenterName: 'Jane Smith',
       commenterTime: '6 hrs',
-      commenterContent: 'Wow Beautiful!',
+      commenterContent: 'Awesome!',
     ),
     Usercomment(
       commenterImg: 'assets/male 1.png',
       commenterName: 'Kenneth Vladimir',
       commenterTime: '2 hrs',
-      commenterContent: 'Wow Beautiful!',
+      commenterContent: 'Fantastic!',
     ),
     Usercomment(
       commenterImg: 'assets/male 2.png',
       commenterName: 'Miko Rojo',
       commenterTime: '8 hrs',
-      commenterContent: 'Wow Beautiful!',
+      commenterContent: 'Superb!',
     ),
   ];
 
