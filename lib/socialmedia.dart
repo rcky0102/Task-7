@@ -28,11 +28,15 @@ class _SocialmediaState extends State<Socialmedia> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
-        ), // // IconButton
-      ), // // AppBar
+          icon: const Icon(Icons.arrow_back),
+        ),
+        title: const Text(
+          'ADAYA TASK 7',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        centerTitle: true,
+      ),
       body: ListView(
-        // shrinkWrap: true,
         children: [
           Mainheader(userdata: userdata),
           Infoheader(userdata: userdata),
@@ -40,13 +44,11 @@ class _SocialmediaState extends State<Socialmedia> {
           const SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(left: 18.0),
-            child: Row(
-              children: [Text('Posts', style: followTxtStyle)],
-            ), // // Row
-          ), // // Padding
+            child: Row(children: [Text('Posts', style: followTxtStyle)]),
+          ),
           Postlist(userdata: userdata),
         ],
-      ), // // ListView
-    ); // // Scaffold
+      ),
+    );
   }
 }

@@ -52,6 +52,13 @@ class _LoginFormState extends State<LoginForm> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'ADAYA TASK 7',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+        ),
+        centerTitle: true,
+      ),
       body: Center(
         child: Container(
           margin: const EdgeInsets.symmetric(horizontal: 25),
